@@ -12,11 +12,11 @@ class Processing():
             matchingExp = re.match( r'!choose (.*)$', message)
             elements = matchingExp.groups()[0].split(",")
             randomAction.elementChoice(elements, serv, channel)
-        elif re.match(r'^!flipcoin$', message, channel):
+        elif re.match(r'^!flipcoin$', message):
             randomAction.flipCoin(serv, channel)
-        elif re.match(r'^!rolldie ([0-9]*)$', message, channel):
+        elif re.match(r'^!rolldie ([0-9]*)$', message):
             n = int(re.match( r'!rolldie ([0-9]*)$', message).groups()[0])
             randomAction.rolldie(n, serv, channel)
-        elif re.match(r'^!gm (.*?)$', message, channel):
+        elif re.match(r'^!gm (.*?)$', message):
             fwMessage = re.match(r'!gm (.*?)$', message).groups()[0]
             adminAction.sendAll(serv, channel)
