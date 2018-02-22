@@ -12,19 +12,26 @@ class Bot(SingleServerIRCBot):
         self.channels = channels
    
     def on_welcome(self, serv, ev):
-        for chan in self.channels:
-            try: serv.join(chan)
+        self.join_channels()
 
     def on_kick(self, serv, ev):
-        for chan in self.channels:
-            try: serv.join(chan)
+        self.join_channels()
 
     def on_pubmsg(self, serv, ev):
         message = ev.arguments[0]
         Processing.processMessage(message, serv, ev.target)
 
+    def join_channels(self):
+        for chan in self.channels:
+            try: serv.join(chan)
+            except: 
+                print("Failed to join {}".format(chan))
+
 if __name__ == "__main__":
-    with open("/opt/key.secret", "r"),open("/opt/channels.csv","") as secret, channels:
+    with open("/opt/key.secret", "r"),
+        open("/opt/channels.csv","") 
+        as secret, channels:
+
         myBot = Bot("MathsBot",
             "MathsBot, le robot du TFJM.",
             secret.readline(),
