@@ -29,7 +29,7 @@ class Bot(SingleServerIRCBot):
 
 if __name__ == "__main__":
     with open("/opt/key.secret", "r"), \
-        open("/opt/channels.csv","") \
+        open("/opt/channels.csv","r") \
         as secret, channels:
 
         myBot = Bot("MathsBot",
