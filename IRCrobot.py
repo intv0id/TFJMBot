@@ -27,7 +27,7 @@ class Bot(SingleServerIRCBot):
         Processing.processMessage(message, serv, ev.target)
 
 if __name__ == "__main__":
-    with open("key.secret", "r") as secret:
+    with open("/opt/key.secret", "r") as secret:
         myBot = Bot("MathsBot",
             "MathsBot, le robot du TFJM.",
             secret.readline())
