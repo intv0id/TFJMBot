@@ -28,8 +28,8 @@ class Bot(SingleServerIRCBot):
                 print("Failed to join {}".format(chan))
 
 if __name__ == "__main__":
-    with open("/opt/key.secret", "r"),
-        open("/opt/channels.csv","") 
+    with open("/opt/key.secret", "r"), \
+        open("/opt/channels.csv","") \
         as secret, channels:
 
         myBot = Bot("MathsBot",
