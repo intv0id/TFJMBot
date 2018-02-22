@@ -2,8 +2,6 @@
 # coding: utf-8
 
 from irc.bot import SingleServerIRCBot, ServerSpec
-import re
-import random as rd
 
 from lib.processing import Processing
 

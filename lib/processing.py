@@ -3,6 +3,8 @@
 
 from .actions import randomAction, adminAction
 
+import re
+
 class Processing():
     @staticmethod
     def processMessage(message, serv, channel):
