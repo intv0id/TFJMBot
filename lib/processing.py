@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
-from actions import randomAction, adminAction
+from .actions import randomAction, adminAction
 
 class Processing():
     @staticmethod
