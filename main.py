@@ -33,6 +33,6 @@ if __name__ == "__main__":
         myBot = Bot("MathsBot",
             "MathsBot, le robot du TFJM.",
             secret.readline(),
-            filter(lambda a: a, channels.readline.split(",")))
+            filter(lambda a: a, channels.readline().split(",")))
         myBot.start()
 
