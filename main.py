@@ -12,16 +12,16 @@ class Bot(SingleServerIRCBot):
         self.channels = channels
    
     def on_welcome(self, serv, ev):
-        self.join_channels()
+        self.join_channels(serv)
 
     def on_kick(self, serv, ev):
-        self.join_channels()
+        self.join_channels(serv)
 
     def on_pubmsg(self, serv, ev):
         message = ev.arguments[0]
         Processing.processMessage(message, serv, ev.target)
 
-    def join_channels(self):
+    def join_channels(self, serv):
         for chan in self.channels:
             try: serv.join(chan)
             except: 
