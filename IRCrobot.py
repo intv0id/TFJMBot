@@ -5,8 +5,6 @@ from irc.bot import SingleServerIRCBot, ServerSpec
 import re
 import random as rd
 
-import numpy as np
-
 from lib.processing import Processing
 
 class Bot(SingleServerIRCBot):
