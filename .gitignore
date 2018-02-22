@@ -1,3 +1,4 @@
 *.secret
+channels.csv
 .vscode/
 README.pdf
