@@ -19,4 +19,4 @@ class Processing():
             randomAction.rolldie(n, serv, channel)
         elif re.match(r'^!gm (.*?)$', message):
             fwMessage = re.match(r'!gm (.*?)$', message).groups()[0]
-            adminAction.sendAll(serv, channel)
+            adminAction.sendAll(fwMessage, serv, channel)

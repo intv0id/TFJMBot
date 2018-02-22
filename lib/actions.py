@@ -37,7 +37,7 @@ class randomAction():
 
 class adminAction():
     @staticmethod
-    def sendAll(serv, channel):
+    def sendAll(fwMessage, serv, channel):
         serv.privmsg(channel, "---- Diffusion ----")
         serv.privmsg(channel, "")
         serv.privmsg(channel, fwMessage)
