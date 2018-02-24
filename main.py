@@ -10,7 +10,7 @@ class Bot(SingleServerIRCBot):
         sSpec = ServerSpec("irc_server", 6667)
         super().__init__([sSpec], name, desc)
         self.channels_list = channels_list
-        self.passwd = passwd
+        self.passwd = passwd.split("\n")[0]
 
     def on_welcome(self, serv, ev):
         self.join_channels(serv)
