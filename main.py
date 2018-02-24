@@ -7,9 +7,10 @@ from lib.processing import Processing
 
 class Bot(SingleServerIRCBot):
     def __init__(self, name, desc, passwd, channels_list):
-        sSpec = ServerSpec("irc_server", 6667, passwd)
+        sSpec = ServerSpec("irc_server", 6667)
         super().__init__([sSpec], name, desc)
         self.channels_list = channels_list
+        self.passwd = passwd
 
     def on_welcome(self, serv, ev):
         self.join_channels(serv)
@@ -22,14 +23,17 @@ class Bot(SingleServerIRCBot):
         Processing.processMessage(message, serv, ev.target)
 
     def join_channels(self, serv):
+        serv.oper("MathsBot", self.passwd)
         for chan in self.channels_list:
-            try: serv.join(chan)
+            try: 
+                serv.join(chan)
+                serv.mode(chan, "+o MathsBot")
             except:
                 print("Failed to join {}".format(chan))
 
 if __name__ == "__main__":
-    with open("/opt/key.secret", "r") as secret, \
-        open("/opt/channels.csv","r") as chan_file:
+    with open("/config/key.secret", "r") as secret, \
+        open("/config/channels.csv","r") as chan_file:
         myBot = Bot("MathsBot",
             "MathsBot, le robot du TFJM.",
             secret.readline(),

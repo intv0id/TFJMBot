@@ -16,14 +16,28 @@ https://intv0id.github.io/TFJMBot/
 
 ## Configuration
 
+### Docker-compose
+
+Example:
+
+```yml
+ircbot:
+  build: ./TFJMBot
+  volumes:
+    - "/etc/ircbot.docker/:/config"
+  container_name: ircbot
+```
+
+Both `key.secret` and `channels.csv` should be in `/config` within the container.
+
 ### key.secret
 
-Hashed (`HMAC-SHA256`) password for operator connection to the irc server.
+Hashed (`SHA256`) password for operator connection to the irc server.
 
 To obtain this hash, use 
 
 ```irc
-\quote /mkpasswd hmac-sha256 <password>
+/quote mkpasswd sha256 <password>
 ```
 
 ### channels.csv
