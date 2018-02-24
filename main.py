@@ -23,9 +23,11 @@ class Bot(SingleServerIRCBot):
         Processing.processMessage(message, serv, ev.target)
 
     def join_channels(self, serv):
+        #serv.send_items("OPER", "MathsBot", self.passwd)
         for chan in self.channels_list:
             try: 
                 serv.join(chan)
+                #serv.send_items("SAMODE", chan, "+o", "MathsBot")
             except:
                 print("Failed to join {}".format(chan))
 
